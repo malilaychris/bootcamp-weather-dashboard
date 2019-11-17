@@ -5,9 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Weather Dashboard</title>
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
   
+  <header>
+    <h1>Weather Dashboard</h1>
+  </header>
+
+  <div class="container">
+
+    <div class="search-city">
+      <h3 class="search-city__title">Search for City:</h3>
+      <form>
+        <input type="text" class="search-city__input" id="searchInput">
+        <button type="button" class="search-city__button" id="searchButton">Search</button>
+      </form>
+      <ul class="city-list" id="city-list">
+      </ul>
+    </div>
+
+    <div class="column-2">
+
+      <div class="weather-card">
+        <h2 class="weather-card__title"><span id="city">City</span> (<span id="date">Date</span>) <span class="weather-icon" id="weather-icon"></span></h2>
+        <div class="temperature">Temperature: <span id="temperature__data">N/A</span></div>
+        <div class="humidity">Humidity: <span id="humidity__data">N/A</span></div>
+        <div class="wind-speed">Wind Speed: <span id="wind-speed__data">N/A</span></div>
+        <div class="uv-index">UV Index: <span class="uv-index__data" id="uv-index__data">N/A</span></div>
+      </div>
+
+      <div class="five-day">
+        <h2 class="five-day__title">5-Day Forecast</h2>
+        <div class="card-list" id="cardList">
+
+          <div class="day-card">
+            <h3>Date</h3>
+            <div><span></span></div>
+            <div>Temp: <span>N/A</span></div>
+            <div>Humidity: <span>N/A</span></div>
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script type="text/javascript" src="assets/scripts/scripts.js"></script>
+
 </body>
 </html>

@@ -9,11 +9,25 @@ function getWeather(cityName) {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
+    let date = new Date();
     $("#city").text(response.name);
+    $("#date").text((date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear());
     $("#weather-icon").html("<img src=\"http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png\">");
     $("#temperature__data").text(((response.main.temp) * (9/5) - 459.67).toFixed(2) + " °F");
     $("#humidity__data").text(response.main.humidity + "%");
     $("#wind-speed__data").text(response.wind.speed + " MPH");
+
+    let lat = response.coord.lat;
+    let long = response.coord.lon;
+
+    let getUV = "http://api.openweathermap.org/data/2.5/uvi?&lat=" + lat + "&lon=" + long + apiKey;
+
+    $.ajax({
+      url: getUV,
+      method: "GET"
+    }).then(function(response) {
+      $("#uv-index__data") = response.value;
+    });
   });
 }
 
